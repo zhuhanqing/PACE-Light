@@ -1,0 +1,75 @@
+dataset:
+  # unqiue params for resize raw data
+  resize: False
+  resize_mode: bilinear
+  resize_style: 'trim'
+  normalize: True
+  device_list: ['slot_mmi3x3']
+  pol_list: [
+    "slot_mmi3x3_rHz_0_fields_epsilon", 
+    "slot_mmi3x3_rHz_4_fields_epsilon", 
+  ]
+  processed_dir: random_size2_slot_mmi3x3
+
+criterion:
+  name: cmae
+  aux_output_weight: 0.0
+  norm: True
+
+aux_criterion:
+  curl_loss:
+    weight: 0.0
+  tv_loss:
+    weight: 0.0
+  poynting_loss:
+    weight: 0.0
+
+optimizer:
+  name: adam
+  lr: 0.003
+  weight_decay: 0.000
+
+scheduler:
+  name: cosine
+  lr_gamma: 0.99
+  lr_min: 0.00001
+
+lp_optimizer:
+  name: adam
+  lr: 0.002
+  weight_decay: 0.000
+
+lp_scheduler:
+  name: cosine
+  lr_gamma: 0.99
+  lr_min: 0.00001
+
+run:
+  experiment: "mmi_fftattffno_refine_slot_mmi3x3"
+  n_epochs: 50
+  batch_size: 4
+
+quantize:
+  weight_bit: 32
+  input_bit: 32
+
+checkpoint:
+  save_best_model_k: 3
+  checkpoint_dir: "mmi/ffno/tune"
+  model_comment: "test"
+  resume: 0
+  restore_checkpoint: ""
+  no_linear: 0
+
+model:
+  aux_pace: True
+
+debug:
+  verbose: 1
+
+plot:
+  train: True
+  valid: True
+  test: True
+  interval: 1
+  dir_name: train_r_pos_Hz5
