@@ -1,6 +1,6 @@
 dataset:
   name: mmi
-  root: "/home/local/eda03/hanqing/project/PACE/data"
+  root: "/home/local/eda-s01/hanqing/project/PACE/data"
   num_workers: 16
   img_height: 80
   img_width: 384

@@ -1,6 +1,6 @@
 dataset:
   name: mmi
-  root: "/home/local/eda03/hanqing/project/PACE/data"
+  root: "/home/local/eda-s01/hanqing/project/PACE/data"
   num_workers: 16
   img_height: 80
   img_width: 384
@@ -99,9 +99,6 @@ model:
   out_channels: 2
   dim: 64
   kernel_list: [64, 64, 64, 64, 64, 64]
-  # kernel_list: [32, 32, 32, 32, 32]
-  # kernel_list: [16, 16, 16, 16, 16]
-  # kernel_size_list: [3, 3, 3, 3, 3]
   kernel_size_list: [1, 1, 1, 1, 1, 1]
   hidden_list: [256]
   # hidden_list: [512]
@@ -124,7 +121,7 @@ model:
   aux_head_idx: 1
   pos_encoding: exp
   with_cp: False
-  aug_path: True
+  aug_path: False
   ffn: True
   ffn_dwconv: True
   conv_stem: True

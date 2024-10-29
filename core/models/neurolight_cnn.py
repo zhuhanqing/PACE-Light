@@ -122,7 +122,8 @@ class ResStem(nn.Module):
             bias=bias,
         )
         self.bn1 = nn.BatchNorm2d(out_channels // 2)
-        self.act1 = nn.ReLU(inplace=True)
+        # self.act1 = nn.ReLU(inplace=True)
+        self.act1 = nn.GELU()
 
         self.conv2 = BSConv2d(
             out_channels // 2,
@@ -133,7 +134,8 @@ class ResStem(nn.Module):
             bias=bias,
         )
         self.bn2 = nn.BatchNorm2d(out_channels)
-        self.act2 = nn.ReLU(inplace=True)
+        # self.act2 = nn.ReLU(inplace=True)
+        self.act2 = nn.GELU()
 
     def forward(self, x: Tensor) -> Tensor:
         x = self.act1(self.bn1(self.conv1(x)))

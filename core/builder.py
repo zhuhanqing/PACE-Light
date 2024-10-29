@@ -2,7 +2,7 @@
  # @ Author: Hanqing Zhu(hqzhu@utexas.edu)
  # @ Create Time: 2024-10-20 15:19:47
  # @ Modified by: Hanqing Zhu(hqzhu@utexas.edu)
- # @ Modified time: 2024-10-21 00:50:45
+ # @ Modified time: 2024-10-29 12:40:26
  # @ Description:
  '''
 
@@ -311,9 +311,8 @@ def make_model(device: Device, model_cfg=None, random_state: int = None, **kwarg
             device=device,
             **kwargs,
         ).to(device)
-        # TODO(hanqing): i didn't reset parameters
         model.reset_parameters(random_state)
-    elif "ffno" in model_cfg.name.lower():
+    elif "neurolight2d" in model_cfg.name.lower():
         model = eval(model_cfg.name)(
             in_channels=configs.dataset.in_channels,
             out_channels=model_cfg.out_channels,
@@ -322,8 +321,8 @@ def make_model(device: Device, model_cfg=None, random_state: int = None, **kwarg
             kernel_size_list=model_cfg.kernel_size_list,
             padding_list=model_cfg.padding_list,
             mode_list=model_cfg.mode_list,
-            act_func=model_cfg.act_func,
-            norm_func=model_cfg.norm_func,
+            # act_func=model_cfg.act_func,
+            # norm_func=model_cfg.norm_func,
             domain_size=model_cfg.domain_size,
             grid_step=model_cfg.grid_step,
             buffer_width=model_cfg.buffer_width,
@@ -338,7 +337,6 @@ def make_model(device: Device, model_cfg=None, random_state: int = None, **kwarg
             aug_path=model_cfg.aug_path,
             ffn=model_cfg.ffn,
             ffn_dwconv=model_cfg.ffn_dwconv,
-            fno_bias=model_cfg.fno_bias,
             **kwargs,
         ).to(device)
         model.reset_parameters(random_state)
