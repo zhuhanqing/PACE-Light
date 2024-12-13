@@ -2,7 +2,7 @@
 
 By [Hanqing Zhu](https://github.com/zhuhanqing), Wenyan Cong, Guojin Chen, Ray T. Chen, Jiaqi Gu and David Z. Pan.
 
-This repo is the official implementation of "[PACE: Pacing Operator Learning to Accurate Optical Field Simulation for Complicated Photonic Devices]".
+This repo is the official implementation of "[PACE: Pacing Operator Learning to Accurate Optical Field Simulation for Complicated Photonic Devices](https://arxiv.org/abs/2411.03527)".
 
 
 # Introduction
@@ -15,7 +15,7 @@ Inspired by human learning, **PACE** adopts a two-stage "divide and conquer" app
 
 In terms of speed, **PACE** achieves a remarkable **154-577×** simulation speedup over traditional numerical solvers like scipy, and a **12×** speedup over optimized solvers like pardiso, making it the ideal solution for high-fidelity and fast photonic device simulations.
 
-![PACE-Light Flow](figs/pace_model_2.pdf)
+![PACE-Light Flow](figs/Neurips_pace.jpg)
 
 ### Key Features:
 - **Cross-axis factorized operator**: Efficiently models long-range interactions in photonic simulations.
